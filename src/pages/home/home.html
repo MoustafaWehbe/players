@@ -1,0 +1,26 @@
+
+<ion-content>
+ <img style="width: 100%; position: relative; height: 100%" src="assets/imgs/table+background.png" />
+
+ <div *ngFor="let player of players; let idx = index" class = "{{player.name}}">
+ 	<img [src]="'assets/imgs/'+player.imageName+'.png'" (click)="playerClicked('P'+(idx+1))"> 
+ </div>
+ <div class="{{selectedPlayer}}" *ngIf="selectedPlayer">
+	<div class="circle" [ngClass] = "{'p1p4margin':selectedPlayer=='P1'||selectedPlayer=='P4'}">
+		<div class="rectangle" >
+		</div>
+	</div>
+</div>
+<div style="width: 20%;position: absolute;top: 35px; margin: 0 auto; left: 40%">
+	<div style="position: relative;">
+		<img src="assets/imgs/playernamebox.png" (click)="playerClicked('P3')">
+	</div>
+	<div style="position: absolute; display: inline-block;top: 10px; left: 20px;" *ngIf="selectedPlayer" > <b>{{selectedPlayer}}</b> turn</div>
+</div>
+
+
+<div style="width: 20%;position: absolute;bottom: 35px; margin: 0 auto; left: 45%">
+	<img src="assets/imgs/previousbutton.png" (click)="arrowClicked('previous')" width="40">
+	<img src="assets/imgs/nextbutton.png" (click)="arrowClicked('next')" width="40">
+</div>
+</ion-content>
